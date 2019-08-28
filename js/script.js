@@ -127,3 +127,14 @@ let descriptionBtn = document.querySelectorAll('.description-btn');
     item.createDiv(); */
     
 }); 
+
+//form
+
+let message = {
+    loading: 'Загрузка.....',
+    success: 'Спасибо! Мы скоро с вами свяжемся',
+    failure: 'Что-то пошло не так.....'
+};
+
+let form = document.querySelector('.main-form'),
+    
