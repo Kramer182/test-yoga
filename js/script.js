@@ -170,5 +170,3 @@ let descriptionBtn = document.querySelectorAll('.description-btn');
         
     });
 }); 
-
-//form
