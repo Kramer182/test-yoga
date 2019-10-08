@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
     });
     //Timer
 
-    let deadline = '2019-08-13';
+    let deadline = '2019-10-10';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -139,8 +139,8 @@ let descriptionBtn = document.querySelectorAll('.description-btn');
     
     function sendForm(elem) {
         elem.addEventListener('submit', function(event) {
-            event.preventDefault();
-            elem.appendChild(statusMessage);
+        event.preventDefault();
+        elem.appendChild(statusMessage);
         
         let request = new XMLHttpRequest();
             request.open('POST', 'server.php');
@@ -173,4 +173,54 @@ let descriptionBtn = document.querySelectorAll('.description-btn');
     }
     sendForm(form);
     sendForm(formBottom);
+
+
+//slider
+    let slideIndex = 1,
+        slides = document.querySelectorAll('.slider-item'),
+        prev = document.querySelector('.prev'),
+        next = document.querySelector('.next'),
+        dotsWrap = document.querySelector('.slider-dots'),
+        dots = document.querySelectorAll('.dot');
+
+    showSlides(slideIndex);  
+
+    function showSlides(n) {
+        if (n > slides.length){
+            slideIndex = 1;
+        }
+
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+
+
+        slides.forEach((item) => item.style.display = 'none');
+        dots.forEach((item) => item.classList.remove('dot-active'));
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].classList.add('dot-active');
+    };
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+
+    }
+
+    prev.addEventListener('click', function() {
+        plusSlides(-1);
+    });
+
+    next.addEventListener('click', function() {
+        plusSlides(1);
+    }); 
+
 }); 
+
+
+
+
+
